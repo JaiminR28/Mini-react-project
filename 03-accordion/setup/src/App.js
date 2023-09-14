@@ -16,7 +16,6 @@ function App() {
 					})}
 				</section>
 			</div>
-			<div>Question</div>
 		</main>
 	);
 }
