@@ -4,7 +4,7 @@ import Alert from "./Alert";
 
 function App() {
 	const [name, setName] = useState("");
-	const [list, stList] = useState([]);
+	const [list, setList] = useState([]);
 	const [isEditing, setIsEditing] = useState(false);
 	const [editID, setEditID] = useState(null);
 
@@ -18,6 +18,12 @@ function App() {
 			// deal with edit
 		} else {
 			// show alert
+			const newItem = {
+				id: new Date().getTime().toString(),
+				title: name,
+			};
+			setList([...list, newItem]);
+			setName("");
 		}
 	};
 
@@ -40,7 +46,7 @@ function App() {
 				</div>
 			</form>
 			<div className="grocery-container">
-				<List />
+				<List items={list} />
 				<button className="clear-btn">clear items</button>
 			</div>
 		</section>
