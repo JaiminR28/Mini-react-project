@@ -9,10 +9,12 @@ const List = ({ items }) => {
 					<article key={id} className="grocery-item">
 						<p className="title">{title}</p>
 						<div className="btn-container">
-							<button
-								type="button"
-								className="edit-Name"
-							></button>
+							<button type="button" className="edit-btn">
+								<FaEdit />
+							</button>
+							<button type="button" className="edit-delete">
+								<FaTrash />
+							</button>
 						</div>
 					</article>
 				);
