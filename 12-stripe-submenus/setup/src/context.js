@@ -3,23 +3,40 @@ import sublinks from "./data";
 
 const AppContext = React.createContext();
 
-const AppProvider = ({ childeren }) => {
+export const AppProvider = ({ children }) => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
 
-	const setSidebarOpen = () => {
+	const SidebarOpen = () => {
 		setIsSidebarOpen(true);
 	};
 
-	const setSidebarClose = () => {
+	const SidebarClose = () => {
 		setIsSidebarOpen(false);
 	};
-	const setModalOpen = () => {
-		setIsModalOpen(true);
+	const SubmenuOpen = () => {
+		setIsSubmenuOpen(true);
 	};
 
-	const setModalClose = () => {
-		setIsModalOpen(false);
+	const SubmenuClose = () => {
+		setIsSubmenuOpen(false);
 	};
-	return <AppContext.Provider>{childeren}</AppContext.Provider>;
+	return (
+		<AppContext.Provider
+			value={{
+				isSubmenuOpen,
+				isSidebarOpen,
+				SubmenuOpen,
+				SubmenuClose,
+				SidebarOpen,
+				SidebarClose,
+			}}
+		>
+			{children}
+		</AppContext.Provider>
+	);
+};
+
+export const useGlobalContext = () => {
+	return useContext(AppContext);
 };
