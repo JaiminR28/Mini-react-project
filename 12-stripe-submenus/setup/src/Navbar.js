@@ -18,8 +18,13 @@ const Navbar = () => {
 		const bottom = tempBtn.bottom - 3; //  because we want the margin for 3px
 		SubmenuOpen(page, { center, bottom });
 	};
+	const handleSubmenu = (e) => {
+		if (!e.target.classList.contains("link-btn")) {
+			SidebarClose();
+		}
+	};
 	return (
-		<nav className="nav">
+		<nav className="nav" onMouseOver={handleSubmenu}>
 			<div className="nav-center">
 				<div className="nav-header">
 					<img src={logo} className="nav-logo" alt="stripe" />
