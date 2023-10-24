@@ -15,7 +15,10 @@ const Submenu = () => {
 	}, [location]);
 
 	return (
-		<aside className={`${isSubmenuOpen ? "submenu show" : "submenu"}`}>
+		<aside
+			className={`${isSubmenuOpen ? "submenu show" : "submenu"}`}
+			ref={container}
+		>
 			submenu component
 		</aside>
 	);
