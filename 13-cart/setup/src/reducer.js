@@ -4,6 +4,15 @@ const reducer = (state, action) => {
 			return { ...state, cart: [] };
 		}
 
+		case "REMOVE": {
+			return {
+				...state,
+				cart: state.cart.filter(
+					(cartItem) => cartItem.id !== action.payload
+				),
+			};
+		}
+
 		default:
 			return;
 	}
