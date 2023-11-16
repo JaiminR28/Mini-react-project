@@ -39,6 +39,16 @@ const reducer = (state, action) => {
 			};
 		}
 
+		case "GET_TOTALS": {
+			const { total, amount } = state.cart.reduce(
+				(cartTotal, cartItem) => {
+					total: 0;
+					amount: 0;
+				}
+			);
+			return { ...state, total, amount };
+		}
+
 		default:
 			return state;
 	}
